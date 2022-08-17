@@ -30,6 +30,8 @@
             {{- $options := dict "Class" "author" "Destination" $authorLink "Title" "Author" "Rel" "author" "Icon" (dict "Class" "fas fa-user-circle fa-fw") "Content" $author -}}
             {{- partial "plugin/a.html" $options -}}
         </span>
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
+        <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
 
         {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
             &nbsp;<span class="post-publish">
