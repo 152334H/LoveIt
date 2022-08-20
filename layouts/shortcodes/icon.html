@@ -1,0 +1,17 @@
+{{- $options := cond .IsNamedParams (.Get "name") (.Get 0) | dict "name" -}}
+{{- $options = cond .IsNamedParams (.Get "url") (.Get 1) | dict "url" | merge $options -}}
+{{- $options = dict "invert" "yes" | merge $options -}}
+
+{{- if .IsNamedParams -}}
+    {{- $options = dict "title" (.Get "title") | merge $options -}}
+{{- end -}}
+
+{{- with $options -}}
+  {{ if .url }} <a href="{{ .url }}"> {{ end }}
+    <img
+      {{ if .invert }} style="filter: invert(1)" {{ end }}
+      {{ if .title }} title="{{ .title }}" {{ end }}
+      height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/{{ .name }}.svg"
+    />
+  {{ if .url }} </a> {{ end }}
+{{- end -}}
