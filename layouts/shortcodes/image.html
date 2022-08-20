@@ -9,6 +9,7 @@
     {{- $options = dict "SrcLarge" (.Get "src_l") | merge $options -}}
     {{- $options = dict "Height" (.Get "height") | merge $options -}}
     {{- $options = dict "Width" (.Get "width") | merge $options -}}
+    {{- $options = dict "Scale" (.Get "scale") | merge $options -}}
     {{- $options = .Get "linked" | ne false | dict "Linked" | merge $options -}}
     {{- $options = dict "Rel" (.Get "rel") | merge $options -}}
 {{- else -}}

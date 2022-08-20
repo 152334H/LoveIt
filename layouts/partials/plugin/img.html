@@ -1,5 +1,6 @@
 {{- /* lazysizes and lightgallery */ -}}
 {{- $src := .Src -}}
+{{- $scale := .Scale -}}
 {{- $width := .Width -}}
 {{- $height := .Height -}}
 {{- with dict "Path" $src "Resources" .Resources | partial "function/resource.html" -}}
@@ -22,7 +23,10 @@
 {{- $loading := resources.Get "svg/loading.svg" | minify -}}
 {{- if .Linked -}}
     <a class="lightgallery" href="{{ $large | safeURL }}" title="{{ .Title | default $alt }}" data-thumbnail="{{ $small | safeURL }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
+      <div style="text-align:center">
         <img
+            {{- with $scale }} style="height:{{ . }}%; width:{{ . }}%" {{ end }}
+            {{- with dict "w" $width "h" $height }} style="height:{{ . }}px; width:{{ . }}px" {{ end }}
             class="lazyload{{ with .Class }} {{ . }}{{ end }}"
             src="{{ $loading.RelPermalink }}"
             data-src="{{ $src | safeURL }}"
@@ -31,6 +35,7 @@
             alt="{{ $alt }}"
             {{- with $width }} width="{{ . }}"{{ end }}
             {{- with $height }} height="{{ . }}"{{ end }} />
+      </div>
     </a>
 {{- else -}}
     <img
