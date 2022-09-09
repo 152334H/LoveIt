@@ -19,7 +19,10 @@
 
     {{- /* Title */ -}}
     <h1 class="single-title" itemprop="name headline">
-        <a href="{{ .RelPermalink }}">{{ .Title | emojify }}</a>
+            <a href="{{ .RelPermalink }}">{{ .Title | emojify }}</a>
+            {{- if .Weight -}}
+            <span style="float: right">📌</span>
+            {{- end -}}
     </h1>
 
     {{- /* Meta */ -}}
