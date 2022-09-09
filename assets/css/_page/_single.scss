@@ -1,6 +1,7 @@
 @import "../_partial/_single/toc";
 
 .single {
+
   .single-title {
     margin: 2rem 0 .5rem;
     font-size: 1.6rem;
@@ -13,6 +14,7 @@
     font-size: 1.2rem;
     font-weight: normal;
     line-height: 100%;
+    @include link(false, false);
   }
 
   .post-meta {
