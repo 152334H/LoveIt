@@ -275,12 +275,27 @@
     hr {
       margin: 1rem 0;
       position: relative;
-      border-top: 1px dashed $global-border-color;
-      border-bottom: none;
+      //border-top: 1px dashed $global-border-color;
+      //border-bottom: none;
+
+      border: none;
+      height: 1px;
+      background-image: linear-gradient(to right, #808080, #404040, #808080);
 
       [theme=dark] & {
-        border-top: 1px dashed $global-border-color-dark;
+        //border-top: 3px dashed $global-border-color-dark;
       }
+    }
+    hr::after {
+      content: '\274A';
+      color: #808080;
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transform-origin: 50% 50%;
+      padding: 1rem;
+      //background-color: white;
     }
 
     kbd {
