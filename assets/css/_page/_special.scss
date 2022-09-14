@@ -3,3 +3,11 @@
     text-align: left;
   }
 }
+.series {
+  .summary {
+    @include link(true,true);
+  }
+  .single-title {
+    @include link(false,false);
+  }
+}
