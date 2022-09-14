@@ -3,7 +3,7 @@
 {{- $pages := where (
         where .Site.RegularPages "Type" "posts"
     ) "Params.tags" "intersect" $tags -}}
-<div class="page home" data-home="posts" style="width: 100%" >
+<div class="page home" data-home="posts" style="width: 100%; padding-top: 0px" >
   <div class="series">
 {{- range $pages -}}
     {{- .Render "summary" -}}

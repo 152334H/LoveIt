@@ -6,6 +6,9 @@
 .series {
   .summary {
     @include link(true,true);
+    background-color: #202020;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .single-title {
     @include link(false,false);
