@@ -1,0 +1,12 @@
+{{- $tags := slice (.Get 0)  -}}
+
+{{- $pages := where (
+        where .Site.RegularPages "Type" "posts"
+    ) "Params.tags" "intersect" $tags -}}
+<div class="page home" data-home="posts" style="width: 100%" >
+  <div class="series">
+{{- range $pages -}}
+    {{- .Render "summary" -}}
+{{- end -}}
+  </div>
+</div>
