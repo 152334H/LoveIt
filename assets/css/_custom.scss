@@ -2,3 +2,21 @@
 // Custom style
 // 自定义样式
 // ==============================
+
+@media (pointer: coarse), (hover: none) {
+  [title] {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+  }
+  [title]:focus::after {
+    content: attr(title);
+    position: absolute;
+    top: 90%;
+    color: #000;
+    background-color: #ddd;
+    border: 1px solid;
+    width: fit-content;
+    padding: 3px;
+  }
+}
